@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="library-container">
+        <div class="header">
+            <h1>📚 Library Online</h1>
+            <p>Search for books by title, author, or keyword</p>
+        </div>
+        <div class="search-section">
+            <div class="search-form">
+                <input type="text" class="search-input" id="searchInput" placeholder="Enter book title, author name, or keyword...">
+                <select class="search-type" id="searchType">
+                    <option value="all">All Fields</option>
+                    <option value="title">Title</option>
+                    <option value="author">Author</option>
+                    <option value="keyword">Keyword</option>
+                </select>
+                <button class="search-btn" id="searchBtn">Search</button>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="languageFilter">Language:</label>
+                    <select id="languageFilter" class="filter-select">
+                        <option value="">All Languages</option>
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="French">French</option>
+                        <option value="German">German</option>
+                        <option value="Swedish">Swedish</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="availabilityFilter">Availability:</label>
+                    <select id="availabilityFilter" class="filter-select">
+                        <option value="">All Books</option>
+                        <option value="available">Only Available Books</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <div class="results-count" id="resultsCount">0 books found</div>
+                <div class="sort-options">
+                    <label for="sortBy">Sort by:</label>
+                    <select id="sortBy" class="filter-select">
+                        <option value="relevance">Relevance</option>
+                        <option value="title">Title (A-Z)</option>
+                        <option value="author">Author (A-Z)</option>
+                        <option value="year">Publication Year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="book-grid" id="bookGrid">
+                <!-- Book results will be populated by your JavaScript/TypeScript -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <h3>No books found</h3>
+                <p>Try adjusting your search terms or filters</p>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

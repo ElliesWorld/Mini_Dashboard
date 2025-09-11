@@ -7,11 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Weather Section -->
+    <div class="weather-section-external">
+        <div class="weather-card">
+            <div class="weather-title text-small mb-8">📖 Weather Reading Suggestion</div>
+            
+            <div class="weather-display mb-8" data-weather-container>
+                <span data-weather="icon">☀️</span>
+                <span data-weather="condition" class="text-small">Loading weather...</span>
+                <span data-weather="temp" class="weather-temp">--°C</span>
+            </div>
+            
+            <div class="weather-content">
+                <p data-weather="suggestion" class="text-small italic mb-8">Loading weather suggestion...</p>
+                <div data-weather="genres" class="genre-container mb-8">
+                    <!-- Genre tags will be populated by API -->
+                </div>
+                <div data-weather="book" class="book-suggestion text-xs">
+                    <strong>Try:</strong> <span>Loading recommendation...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Library Container -->
     <div class="library-container">
+        <!-- Library Header -->
         <div class="header">
             <h1>📚 Library Online</h1>
             <p>Search for books by title, author, or keyword</p>
         </div>
+
+        <!-- Search Section -->
         <div class="search-section">
             <div class="search-form">
                 <input type="text" class="search-input" id="searchInput" placeholder="Enter book title, author name, or keyword...">
@@ -29,11 +56,7 @@
                     <label for="languageFilter">Language:</label>
                     <select id="languageFilter" class="filter-select">
                         <option value="">All Languages</option>
-                        <option value="English">English</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="French">French</option>
-                        <option value="German">German</option>
-                        <option value="Swedish">Swedish</option>
+                        <!-- Options will be populated by API -->
                     </select>
                 </div>
                 <div class="filter-group">
@@ -45,6 +68,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Results Section -->
         <div class="results-section" id="resultsSection" style="display: none;">
             <div class="results-header">
                 <div class="results-count" id="resultsCount">0 books found</div>
@@ -59,7 +84,7 @@
                 </div>
             </div>
             <div class="book-grid" id="bookGrid">
-                <!-- Book results will be populated by your JavaScript/TypeScript -->
+                <!-- Book results will be populated by API -->
             </div>
             <div class="no-results" id="noResults" style="display: none;">
                 <h3>No books found</h3>
@@ -67,6 +92,7 @@
             </div>
         </div>
     </div>
+
     <script src="main.js"></script>
 </body>
 </html>

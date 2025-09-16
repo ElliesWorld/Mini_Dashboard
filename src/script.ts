@@ -45,7 +45,7 @@ interface WeatherRecommendation
 {
     suggestion: string;
     genres: string[];
-    bookTitle string;
+    bookTitle: string;
 }
 
 interface BookStats

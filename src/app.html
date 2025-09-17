@@ -1,98 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Online</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Weather Section -->
     <div class="weather-section-external">
-        <div class="weather-card">
-            <div class="weather-title text-small mb-8">📖 Weather Reading Suggestion</div>
-            
-            <div class="weather-display mb-8" data-weather-container>
-                <span data-weather="icon">☀️</span>
-                <span data-weather="condition" class="text-small">Loading weather...</span>
-                <span data-weather="temp" class="weather-temp">--°C</span>
-            </div>
-            
-            <div class="weather-content">
-                <p data-weather="suggestion" class="text-small italic mb-8">Loading weather suggestion...</p>
-                <div data-weather="genres" class="genre-container mb-8">
-                    <!-- Genre tags will be populated by API -->
-                </div>
-                <div data-weather="book" class="book-suggestion text-xs">
-                    <strong>Try:</strong> <span>Loading recommendation...</span>
-                </div>
-            </div>
+      <div class="weather-card">
+        <div class="weather-title text-small mb-8">
+          📖 Reading Suggestion
         </div>
+
+        <div class="weather-display mb-8" data-weather-container>
+          <span data-weather="icon">☀️</span>
+          <span data-weather="condition" class="text-small"
+            >Loading weather...</span
+          >
+          <span data-weather="temp" class="weather-temp">--°C</span>
+        </div>
+
+        <div class="weather-content">
+          <p data-weather="suggestion" class="text-small italic mb-8">
+            Loading weather suggestion...
+          </p>
+          <div data-weather="genres" class="genre-container mb-8">
+            <!-- Genre tags will be populated by API -->
+          </div>
+          <div data-weather="book" class="book-suggestion text-xs">
+            <strong>Try:</strong> <span>Loading recommendation...</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Main Library Container -->
     <div class="library-container">
-        <!-- Library Header -->
-        <div class="header">
-            <h1>📚 Library Online</h1>
-            <p>Search for books by title, author, or keyword</p>
+      <!-- Library Header -->
+      <div class="header">
+        <h1>📚 Library Online</h1>
+        <p>Search for books by title, author, or keyword</p>
+      </div>
+
+      <!-- Search Section -->
+      <div class="search-section">
+        <div class="search-form">
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Enter book title, author name, or keyword..."
+          />
+          <select class="search-type" id="searchType">
+            <option value="all">All Fields</option>
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="keyword">Keyword</option>
+          </select>
+          <button class="search-btn" id="searchBtn">Search</button>
         </div>
 
-        <!-- Search Section -->
-        <div class="search-section">
-            <div class="search-form">
-                <input type="text" class="search-input" id="searchInput" placeholder="Enter book title, author name, or keyword...">
-                <select class="search-type" id="searchType">
-                    <option value="all">All Fields</option>
-                    <option value="title">Title</option>
-                    <option value="author">Author</option>
-                    <option value="keyword">Keyword</option>
-                </select>
-                <button class="search-btn" id="searchBtn">Search</button>
-            </div>
-            
-            <div class="filters">
-                <div class="filter-group">
-                    <label for="languageFilter">Language:</label>
-                    <select id="languageFilter" class="filter-select">
-                        <option value="">All Languages</option>
-                        <!-- Options will be populated by API -->
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="availabilityFilter">Availability:</label>
-                    <select id="availabilityFilter" class="filter-select">
-                        <option value="">All Books</option>
-                        <option value="available">Only Available Books</option>
-                    </select>
-                </div>
-            </div>
+        <div class="filters">
+          <div class="filter-group">
+            <label for="languageFilter">Language:</label>
+            <select id="languageFilter" class="filter-select">
+              <option value="">All Languages</option>
+              <!-- Options will be populated by API -->
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="availabilityFilter">Availability:</label>
+            <select id="availabilityFilter" class="filter-select">
+              <option value="">All Books</option>
+              <option value="available">Only Available Books</option>
+            </select>
+          </div>
         </div>
+      </div>
 
-        <!-- Results Section -->
-        <div class="results-section" id="resultsSection" style="display: none;">
-            <div class="results-header">
-                <div class="results-count" id="resultsCount">0 books found</div>
-                <div class="sort-options">
-                    <label for="sortBy">Sort by:</label>
-                    <select id="sortBy" class="filter-select">
-                        <option value="relevance">Relevance</option>
-                        <option value="title">Title (A-Z)</option>
-                        <option value="author">Author (A-Z)</option>
-                        <option value="year">Publication Year</option>
-                    </select>
-                </div>
-            </div>
-            <div class="book-grid" id="bookGrid">
-                <!-- Book results will be populated by API -->
-            </div>
-            <div class="no-results" id="noResults" style="display: none;">
-                <h3>No books found</h3>
-                <p>Try adjusting your search terms or filters</p>
-            </div>
+      <!-- Results Section -->
+      <div class="results-section" id="resultsSection" style="display: none">
+        <div class="results-header">
+          <div class="results-count" id="resultsCount">0 books found</div>
+          <div class="sort-options">
+            <label for="sortBy">Sort by:</label>
+            <select id="sortBy" class="filter-select">
+              <option value="relevance">Relevance</option>
+              <option value="title">Title (A-Ö)</option>
+              <option value="author">Author (A-Ö)</option>
+              <option value="year">Publication Year</option>
+            </select>
+          </div>
         </div>
+        <div class="book-grid" id="bookGrid">
+          <!-- Book results will be populated by API -->
+        </div>
+        <div class="no-results" id="noResults" style="display: none">
+          <h3>No books found</h3>
+          <p>Try adjusting your search terms or filters</p>
+        </div>
+      </div>
     </div>
 
+    <script src="weather.js"></script>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

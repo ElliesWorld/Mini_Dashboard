@@ -1,11 +1,7 @@
 # Library Online 
-## TypeScript Weather & Book Search Application
+## TypeScript Weather with Book Search Application
 
 A TypeScript based application that integrates weather book recommendations with a book search system using two APIs and async programming patterns.
-
-### API Integration
-- **Weather API**: Open-Meteo API for location weather data with book recommendations
-- **Library API**: OpenLibrary API for book search
 
 ## Features
 

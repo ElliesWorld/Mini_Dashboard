@@ -6,3 +6,7 @@ package-lock.json
 
 # Ignore the build/ folder
 build/
+
+# Ignore automatically generated files
+library.js
+weather.js

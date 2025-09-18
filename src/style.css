@@ -210,6 +210,16 @@ body {
   font-size: 14px;
 }
 
+template {
+    display: none;
+}
+
+.subjects-section {
+    margin-top: 10px; 
+    font-size: 0.85em; 
+    color: #666;
+}
+
 .results-section {
   margin-top: 30px;
 }
@@ -361,5 +371,5 @@ body {
     background: rgba(33, 150, 243, 0.25);
     transform: translateY(-1px);
   }
-
 }
+

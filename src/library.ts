@@ -15,7 +15,7 @@ interface SearchResponse {
 
 // Store current search results for filtering
 let currentBooks: Book[] = [];
-let currentQuery = '';
+let currentQuery = "";
 
 // Search books from OpenLibrary API
 const searchBooks = async (query: string): Promise<Book[]> => {
@@ -34,10 +34,7 @@ const searchBooks = async (query: string): Promise<Book[]> => {
 };
 
 // Filter and transform book data
-const processBooks = (
-  books: Book[],
-  filters: { available?: boolean },
-) => {
+const processBooks = (books: Book[], filters: { available?: boolean }) => {
   return books
     .filter((book) => {
       // Filter by availability if asked
@@ -50,14 +47,16 @@ const processBooks = (
 
       return true;
     })
-    .map((book) => ({
-      title: book.title || "Untitled",
-      authors: book.author_name?.slice(0, 2).join(", ") || "Unknown Author",
-      year: book.first_publish_year || "Unknown",
-      languages: book.language?.slice(0, 2) || [],
-      subjects: book.subject?.slice(0, 3) || [],
-      isAvailable: ["borrowable", "public"].includes(book.ebook_access || ""),
-    }));
+    .map((book) => {
+      return {
+        title: book.title || "Untitled",
+        authors: book.author_name?.slice(0, 2).join(", ") || "Unknown Author",
+        year: book.first_publish_year || "Unknown",
+        languages: book.language?.slice(0, 2) || [],
+        subjects: book.subject?.slice(0, 3) || [],
+        isAvailable: ["borrowable", "public"].includes(book.ebook_access || ""),
+      };
+    });
 };
 
 // Create individual book card from template
@@ -132,7 +131,7 @@ const displayResults = (
   noResults.style.display = "none";
   bookGrid.style.display = "grid";
 
-  // Clear previous results 
+  // Clear previous results
   bookGrid.innerHTML = "";
   books.forEach((book) => {
     const bookCard = createBookBox(book);
@@ -175,12 +174,10 @@ const handleSearch = async () => {
 
     // Display the results
     displayResults(processedBooks, query);
-
   } catch (error) {
     // Error handling
     console.error("Search failed:", error);
     alert("Search failed. Please try again.");
-
   } finally {
     // Reset button state regardless of success/failure
     searchBtn.disabled = false;
@@ -191,8 +188,12 @@ const handleSearch = async () => {
 // Initialize event listeners when page loads
 document.addEventListener("DOMContentLoaded", () => {
   const searchBtn = document.getElementById("searchBtn");
-  const searchInput = document.getElementById("searchInput") as HTMLInputElement;
-  const availabilityFilter = document.getElementById("availabilityFilter") as HTMLSelectElement;
+  const searchInput = document.getElementById(
+    "searchInput",
+  ) as HTMLInputElement;
+  const availabilityFilter = document.getElementById(
+    "availabilityFilter",
+  ) as HTMLSelectElement;
 
   // Search button click
   searchBtn?.addEventListener("click", handleSearch);
@@ -208,11 +209,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const resultsSection = document.getElementById("resultsSection")!;
       resultsSection.style.display = "none";
       currentBooks = [];
-      currentQuery = '';
+      currentQuery = "";
     }
   });
 
-  // Availability filter 
+  // Availability filter
   availabilityFilter?.addEventListener("change", () => {
     if (currentBooks.length > 0) {
       const processedBooks = processBooks(currentBooks, {

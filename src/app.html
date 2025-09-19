@@ -7,30 +7,59 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Weather Section -->
-    <div class="weather-section-external">
-      <div class="weather-card">
-        <div class="weather-title text-small mb-8">
-          📖 Reading Suggestion
-        </div>
-
-        <div class="weather-display mb-8" data-weather-container>
-          <span data-weather="icon">☀️</span>
-          <span data-weather="condition" class="text-small"
-            >Loading weather...</span
-          >
-          <span data-weather="temp" class="weather-temp">--°C</span>
-        </div>
-
-        <div class="weather-content">
-          <p data-weather="suggestion" class="text-small italic mb-8">
-            Loading weather suggestion...
-          </p>
-          <div data-weather="genres" class="genre-container mb-8">
-            <!-- Genre tags will be populated by API -->
+    <!-- Top Widgets Section -->
+    <div class="top-widgets">
+      <!-- Weather Widget - Centered -->
+      <div class="weather-section-external">
+        <div class="weather-card">
+          <div class="weather-title text-small mb-8">
+            📖 Reading Suggestion
           </div>
-          <div data-weather="book" class="book-suggestion text-xs">
-            <strong>Try:</strong> <span>Loading recommendation...</span>
+
+          <div class="weather-display mb-8" data-weather-container>
+            <span data-weather="icon">☀️</span>
+            <span data-weather="condition" class="text-small"
+              >Loading weather...</span
+            >
+            <span data-weather="temp" class="weather-temp">--°C</span>
+          </div>
+
+          <div class="weather-content">
+            <p data-weather="suggestion" class="text-small italic mb-8">
+              Loading weather suggestion...
+            </p>
+            <div data-weather="genres" class="genre-container mb-8">
+              <!-- Genre tags will be populated by API -->
+            </div>
+            <div data-weather="book" class="book-suggestion text-xs">
+              <strong>Try:</strong> <span>Loading recommendation...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task Manager Widget - Right Side -->
+      <div class="task-widget">
+        <div class="task-header">
+          <h3>📝 TO READ</h3>
+        </div>
+        
+        <div class="task-input-section">
+          <input 
+            type="text" 
+            class="task-input" 
+            id="taskInput" 
+            placeholder="Add a note or reminder..."
+            maxlength="150"
+          >
+          <button class="add-task-btn" id="addTaskBtn">Add Note</button>
+        </div>
+        
+        <div class="task-count" id="taskCount">0 notes</div>
+        
+        <div class="task-list" id="taskList">
+          <div class="empty-tasks" id="emptyTasks">
+            No notes yet. Add one above!
           </div>
         </div>
       </div>
@@ -123,5 +152,6 @@
 
     <script src="weather.js"></script>
     <script src="library.js"></script>
+    <script src="taskManager.js"></script>
   </body>
 </html>
